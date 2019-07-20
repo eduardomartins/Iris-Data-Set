@@ -27,9 +27,9 @@ main <- function(){
   
     myscatter.plot(x, y, file.name=f.name, m="Dispertion Graphic", x.lab="Sepal Length", y.lab="Sepal Width")
     
-    #f.name <- file.path(folder, paste("bell-sepal-length", class.name,  ".pdf", sep = "")) 
+    f.name <- file.path(folder, paste("bell-sepal-length", class.name,  ".pdf", sep = "")) 
     
-    #mybell.plot(x, file.name=f.name, m="Bell curve Graphic", x.lab="Sepal Length")
+    mybell.plot(x, file.name=f.name, m="Bell curve Graphic", x.lab="Sepal Length")
     
     #f.name <- file.path(folder, paste("bell-sepal-width", class.name,  ".pdf", sep = "")) 
     
@@ -64,9 +64,9 @@ mybell.plot <- function(value, file.name = "plot.pdf", m = NA, x.lab = NA){
   
   pdf(file.name)
   
-  hist(value, col = "red", freq = F, xlim = 2 + c(min(value), max(value)))
+  hist(value, col = "red", freq = F, xlim = 10 + c(-5, 5))
   
-  curve( dnorm(value, mean = mean(value), sd = 2), min(value), max(value), add = T, col="blue")
+  #curve(dnorm(value, mean = mean(value), sd = sd(value)))#, 5, 15, add = T, col = "blue")
   
   dev.off()
   
